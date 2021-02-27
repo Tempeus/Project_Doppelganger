@@ -47,7 +47,7 @@ client.on('message', message => {
         client.commands.get('clear').execute(message);
     }
     else if(command == 'help'){
-        client.commands.get('ping').execute(message, args);
+        client.commands.get('help').execute(message, args);
     }
 
     //Add more commands
