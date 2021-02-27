@@ -3,6 +3,10 @@
 const ytdl = require('ytdl-core');
 const ytSearch = require('yt-search');
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
+
 module.exports = {
     name: 'play',
     description: 'Joins and plays sounds',
@@ -34,18 +38,26 @@ module.exports = {
             const connection = await voiceChannel.join();
             const stream = ytdl(args[0], {filter: 'audioonly'});
 
-            connection.play(stream, {seek:0, volume:1})
+            if(getRandomInt(5) == 0){
+                message.member.voice.channel.join().then(VoiceConnection => {
+                    // Playing the music, and, on finish, disconnecting the bot.
+                    VoiceConnection.play("./music/rick.mp3").on("finish", () => VoiceConnection.disconnect());
+                }).catch(e => console.log(e))
+            }
+            else {
+                connection.play(stream, {seek:0, volume:1})
+                
+                //Might have to play an array then finish entirely
+                .on('finish', ()=> {
+                    voiceChannel.leave();
+                    message.channel.send('brb guys, i gotta consume sustanence')
+                });
             
-            //Might have to play an array then finish entirely
-            .on('finish', ()=> {
-                voiceChannel.leave();
-                message.channel.send('brb guys, i gotta consume sustanence')
-            });
-
-            //might remove
-            await message.replay(`playing something`)
-
-            return
+                //might remove
+                await message.replay(`playing something`)
+            
+                return
+            }
         }
 
         const connection = await voiceChannel.join();
@@ -61,20 +73,33 @@ module.exports = {
         if(video) {
             //Output to discord channel
             const stream = ytdl(video.url, {filter: 'audioonly'});
-            //play the thing
-            connection.play(stream, {seek: 0, volume: 1})
 
-            //Might remove -- Make the discord bot leave
-            .on('finish', () =>{
-                voiceChannel.leave();
-            });
+            if(getRandomInt(5) == 0){
+                message.member.voice.channel.join().then(VoiceConnection => {
+                    // Playing the music, and, on finish, disconnecting the bot.
+                    VoiceConnection.play("./music/rick.mp3").on("finish", () => VoiceConnection.disconnect());
+                }).catch(e => console.log(e))
+            }
+            else {
+                //play the thing
+                connection.play(stream, {seek: 0, volume: 1})
 
-            //Might remove
-            await message.reply(`playing something`)
+                //Might remove -- Make the discord bot leave
+                .on('finish', () =>{
+                    voiceChannel.leave();
+                });
+
+                //Might remove
+                await message.reply(`playing something`)
+            }
         }
         else {
             //Might remove this
-            message.channel.send('I didnt find shit');
+            message.channel.send("I didnt find shit, but here is something better");
+            message.member.voice.channel.join().then(VoiceConnection => {
+                // Playing the music, and, on finish, disconnecting the bot.
+                VoiceConnection.play("./music/rick.mp3").on("finish", () => VoiceConnection.disconnect());
+            }).catch(e => console.log(e))
         }
     }
 }
