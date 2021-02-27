@@ -34,7 +34,7 @@ client.on('message', message => {
     }
     else if(command == 'execute_order'){
         message.channel.send('yes milord');
-        //client.commands.get('executeorder').execute(message, args);
+        client.commands.get('executeorder').execute(message);
     }
     else if(command == 'play'){
         client.commands.get('play').execute(message, args);

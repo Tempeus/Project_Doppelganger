@@ -3,6 +3,14 @@ module.exports = {
     name: 'ping',
     description: "this is a ping command!",
     execute(message, args){
-        message.channel.send('stfu');
+        if(!message.member.user.username.localeCompare("meetublu")){
+            message.channel.send("stfu, bitch");
+        }
+        else if(!message.member.user.username.localeCompare("HollowTube")){
+            message.channel.send("yes king");
+        }
+        else{
+            message.channel.send('stfu'); 
+        }
     }
 }
