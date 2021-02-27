@@ -1,5 +1,6 @@
 const { execute } = require("./play")
 
+//Making him leave the server
 module.exports = {
     name: 'leave',
     description: 'make the bot gtfo',

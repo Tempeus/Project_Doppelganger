@@ -1,10 +1,7 @@
+//Music bot
+//Implement a 10% chance of him playing rickroll
 const ytdl = require('ytdl-core');
 const ytSearch = require('yt-search');
-
-//Have an array of URLS of Tritin's audio, have the first thing he says an randomized introduction,
-//Then we will have random soundbits of him doing ramdom things
-//Then we end with a rickroll theme
-//Then leave
 
 module.exports = {
     name: 'play',
@@ -73,7 +70,7 @@ module.exports = {
             });
 
             //Might remove
-            await message.reply(`I love this song: ${video.title}`)
+            await message.reply(`playing something`)
         }
         else {
             //Might remove this

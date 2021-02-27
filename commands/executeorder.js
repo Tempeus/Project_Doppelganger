@@ -1,4 +1,4 @@
-//This clone bot will essentially
+//This clone bot will do something cool, idk yet
 module.exports = {
     name: 'executeorder',
     description: "Good soldiers follow orders",
