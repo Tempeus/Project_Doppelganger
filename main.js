@@ -1,4 +1,4 @@
-//https://discord.com/oauth2/authorize?client_id=815256033945583636&scope=bot&permissions=70261824
+//https://discord.com/oauth2/authorize?client_id=INSERT_CLIENT_ID_HERE&scope=bot&permissions=2147483641
 //Need a clear msg command, to hide the commands of him joining.
 const Discord = require('discord.js');
 
@@ -42,8 +42,12 @@ client.on('message', message => {
     else if(command =='gtfo'){
         client.commands.get('leave').execute(message, args);
     }
-    else if(command == 'yo'){
-        client.commands.get('jebait').execute(message, args);
+    else if(command == 'jebait'){
+        client.commands.get('jebait').execute(message);
+        client.commands.get('clear').execute(message);
+    }
+    else if(command == 'help'){
+        client.commands.get('ping').execute(message, args);
     }
 
     //Add more commands
