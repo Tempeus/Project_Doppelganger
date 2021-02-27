@@ -8,7 +8,7 @@ module.exports = {
             message.channel.send("no");
         }
         else if(!message.member.user.username.localeCompare("HollowTube")){
-            message.channel.send("Of course, milord\n To summon me, you must use TTT, \n I obey to orders suchas: play, ping, gtfo, help, executeorder");
+            message.channel.send("Of course, milord\n To summon me, you must use TTT, \n I obey to orders such as: play, ping, gtfo, help, executeorder");
         }
         else{
             message.channel.send("Why do you need help? This is eaaassssyyyyy"); 
