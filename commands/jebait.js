@@ -29,7 +29,7 @@ module.exports = {
         message.member.voice.channel.join().then(VoiceConnection => {
             // Playing the music, and, on finish, disconnecting the bot.
             VoiceConnection.play("./music/intro_whatdoyouwant.mp3").on("finish", sleep(5000).then(()=> {
-                VoiceConnection.play("./music/rick.mp3").on("finish", () => VoiceConnection.disconnect());
+                VoiceConnection.play("./music/stfubitch.mp3").on("finish", () => VoiceConnection.disconnect());
             }))
     
         }).catch(e => console.log(e))
