@@ -13,11 +13,13 @@ module.exports = {
         if(!permissions.has('SPEAK'))
             return message.channel.send('someone demoted me, dafuq');
 
+        message.channel.send("Good soldiers follow orders, I am sorry milord.");    
+
         const connection = await voiceChannel.join();
 
         message.member.voice.channel.join().then(VoiceConnection => {
             // Playing the music, and, on finish, disconnecting the bot.
-            VoiceConnection.play("./music/rick.mp3").on("finish", () => VoiceConnection.disconnect());
+            VoiceConnection.play("./music/order66.mp3").on("finish", () => VoiceConnection.disconnect());
         }).catch(e => console.log(e))
     }
 }
