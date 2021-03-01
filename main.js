@@ -49,6 +49,12 @@ client.on('message', message => {
     else if(command == 'help'){
         client.commands.get('help').execute(message, args);
     }
+    else if(command == 'mute'){
+        client.commands.get('mute').execute(message, args);
+    }
+    else if(command == 'unmute'){
+        client.commands.get('unmute').execute(message, args);
+    }
 
     //Add more commands
 
