@@ -1,17 +1,17 @@
 
 //Add feature if discord user meetublu#6284 requests the ping, you append bitch next output.
 module.exports = {
-    name: 'help',
-    description: "this is a help command for the plebz",
+    name: 'ping',
+    description: "this is a ping command",
     execute(message, args){
         if(!message.member.user.username.localeCompare("meetublu")){
-            message.channel.send("no");
+            message.channel.send("stfu, bitch");
         }
         else if(!message.member.user.username.localeCompare("HollowTube")){
-            message.channel.send("Of course, milord\n To summon me, you must use TTT, \n I obey to orders suchas: play, ping, gtfo, help, executeorder");
+            message.channel.send("I am here, your Majesty");
         }
         else{
-            message.channel.send("Why do you need help? This is eaaassssyyyyy"); 
+            message.channel.send("stfu"); 
         }
     }
 }
